@@ -72,8 +72,8 @@ class BaseKDE(ABC):
         elif isinstance(bw, (np.ndarray, Sequence)):
             self.bw_method = bw
         else:
-            #raise ValueError("Bandwidth must be > 0, array-like or a string.")
-            None
+            raise ValueError("Bandwidth must be > 0, array-like or a string.")
+            
         # Test quickly that the method has done what is was supposed to do
         assert callable(self.kernel)
         assert isinstance(self.bw_method, (np.ndarray, Sequence, numbers.Number)) or callable(self.bw_method)
